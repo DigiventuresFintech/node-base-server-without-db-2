@@ -9,8 +9,8 @@ services:
             context: .
             dockerfile: ./Dockerfile
         environment:
-            USE_MONGODB: false
-            USE_REDIS: false
+            USE_MONGODB: "false"
+            USE_REDIS: "false"
         ports:
             - 80:80
         logging:

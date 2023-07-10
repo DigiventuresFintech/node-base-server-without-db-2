@@ -7,7 +7,7 @@ const express = require("express"),
   moment = require("moment"),
   mongoose = require("mongoose");
 
-if (process.env.USE_MONGODB)
+if (process.env.USE_MONGODB !== "false")
   mongoose.connect(config.mongodbConnectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
