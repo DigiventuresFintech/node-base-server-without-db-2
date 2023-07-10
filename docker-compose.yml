@@ -9,26 +9,12 @@ services:
             context: .
             dockerfile: ./Dockerfile
         environment:
-            NODE_ENV: production
-            REDISURL: redis
-            MONGODB_IP: mongo
+            USE_MONGODB: true
+            USE_REDIS: true
         ports:
-            - 5600:5600
+            - 80:80
         logging:
             options:
                 max-size: 50m
-        links:
-            - redis
-            - mongo
-    redis:
-        container_name: redis
-        image: "redis:alpine"
-        restart: always
-        ports:
-            - "6379:6379"
-    mongo:
-        container_name: mongo
-        image: mongo
-        restart: always
-        ports:
-            - "27017:27017"
+        env_file:
+            - ./.env
